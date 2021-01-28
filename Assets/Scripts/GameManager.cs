@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	public TMPro.TextMeshProUGUI scoreDisplay;
+	public GameObject reset;
 	private int score = 0;
 
 	private void Awake()
@@ -25,6 +26,11 @@ public class GameManager : MonoBehaviour
 	public void addScore()
 	{
 		++score;
-		scoreDisplay.text = score.ToString();
+		scoreDisplay.text = score.ToString() + "/7";
+
+		if (score == 7)
+		{
+			reset.SetActive(true);
+		}
 	}
 }
